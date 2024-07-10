@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Ajuda from "./pages/Ajuda";
 import NotFound from "./pages/NotFound";
+import Rodape from "./components/Rodape";
+import PoliticasPrivacidade from "./pages/PoliticasPrivacidade";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // BrowserRouter = componente essecial para conduzir o roteamento do navegador.
 // Router = indicamos a rota (path) e o elemento que será exibido na tela.
@@ -20,8 +22,9 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/ajuda" element={<Ajuda />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/politicas" element={<PoliticasPrivacidade />} />
         </Routes>
-        {/* <Rodape /> */}
+        <Rodape />
       </BrowserRouter>
     </>
   );
