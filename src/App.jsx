@@ -20,9 +20,8 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/ajuda" element={<Ajuda />} />
           <Route path="*" element={<NotFound />} />
-          
-
         </Routes>
+        {/* <Rodape /> */}
       </BrowserRouter>
     </>
   );
