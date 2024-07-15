@@ -1,9 +1,18 @@
 @import "bootstrap/dist/css/bootstrap.min.css"; 
 /* import do bootstrap */
 
-
 /* para centralizar determina uma largura e coloca margin em auto */
+
 .form-section {
     width: 320px;
     margin: 16px auto; 
 }
+
+.invalid {
+    color: red;
+}
+
+main {
+    min-height: calc(100vh - 112px);
+}
+

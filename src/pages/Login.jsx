@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form"; // Biblioteca utilizada para os forms e tem que ser intalada nos projetos
 
 function Login() { // no form = for tem que ser igual ao id para fazer a ligação e não precisa colocar o atributo name, pois já tem na biblioteca
-    const { register, handleSubmit } = useForm(); // register = registra inputs
+    const { register, handleSubmit, formState: { errors } } = useForm (); // register = registra inputs
 
     function entrar(data) { // data = é um objeto com os dados do forms com email e senha
         console.log(data);
@@ -19,8 +19,10 @@ function Login() { // no form = for tem que ser igual ao id para fazer a ligaç�
                         type="email" 
                         id="email" 
                         className="form-control"
-                        {...register("email")} // esse parâmetro é o nome do input
+                        {...register("email", {required: "O email é obrigatório!"})} // esse parâmetro é o nome do input
                     />
+                    {errors.email && <small className="invalid">{errors.email.message}</small>}
+
                 </div>
                 <div>
                     <label htmlFor="senha">Senha</label>
@@ -28,11 +30,17 @@ function Login() { // no form = for tem que ser igual ao id para fazer a ligaç�
                         type="password" 
                         id="senha" 
                         className="form-control"
-                        {...register("senha")}
+                        {...register("senha", {required: "A senha é obrigatória!", minLength: {value: 6, message: "Mínimo de 6 caracteres!"}})}
                     />
+                    {errors.senha && <small className="invalid">{errors.senha.message}</small>}
+
                 </div>
-                <Button variant="outline-dark" className="mt-1 w-100">Entrar</Button>
-                <Button variant="outline-danger" className="mt-1 w-100">Entrar com o Google</Button>
+                <Button variant="outline-dark" className="mt-1 w-100" type="submit">
+                    Entrar
+                </Button>
+                <Button variant="outline-danger" className="mt-1 w-100" type="button">
+                    Entrar com o Google
+                </Button>
             </form>
         </main>
     );
