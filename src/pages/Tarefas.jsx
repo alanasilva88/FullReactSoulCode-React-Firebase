@@ -46,6 +46,16 @@ function Tarefas() {
         return <Navigate to="/login" />
     }
 
+    const categorias = {
+        "Estudos": "primary",
+        "Lazer": "warning",
+        "Trabalho": "success",
+        "Lazer": "info" ,
+        "Projetos": "danger",
+        "Outros": "dark",
+    };
+
+
     return (
         <main>
             <Container className="mt-5">
@@ -61,8 +71,8 @@ function Tarefas() {
                                 <Card.Text>{tarefa.descricao}</Card.Text>
                                 <div>
                                     {tarefa.concluido ? <Badge bg="success" className="m-1">Concluído</Badge> : <Badge bg="warning">Pendente</Badge>}
-                                    <Badge bg="dark" className="m-1">{tarefa.categoria}</Badge>
-                                    <Badge bg="dark">{new Date(tarefa.dataConclusao).toLocaleDateString()}</Badge>
+                                    <Badge bg={categorias[tarefa.categoria]} className="m-1">{tarefa.categoria}</Badge>
+                                    <Badge bg="dark" >{new Date(tarefa.dataConclusao).toLocaleDateString()}</Badge>
                                 </div>
                                 <Button variant="outline-dark m-1" onClick={() => {
                                     navigate(`/tarefas/editar/${tarefa.id}`);
