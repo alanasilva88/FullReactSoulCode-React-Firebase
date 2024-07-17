@@ -2,7 +2,9 @@ import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { addTarefa } from "../firebase/tarefas";
 import toast from "react-hot-toast";
-import { useNavigate} from "react-router-dom"; // Chama função para navegar em outras páginas
+import { Navigate, useNavigate} from "react-router-dom"; // Chama função para navegar em outras páginas
+import { UsuarioContext } from "../contexts/UsuarioContext";
+import { useContext } from "react";
 
 function NovaTarefa() { // formState: {errors} ele diz onde está o erro no preenchimento do formulário
     const { 
@@ -11,9 +13,14 @@ function NovaTarefa() { // formState: {errors} ele diz onde está o erro no pree
         formState: { errors },
     } = useForm();
 
+    const usuario = useContext(UsuarioContext);
+
     const navigate = useNavigate();
 
     function salvarTarefa (data) {
+        // Novo campo/propriedade no documento que associa o usuário a tarefa que ele criou
+        data.idUsuario = usuario.uid;
+
         addTarefa(data).then(() => {
             toast.success("Tarefa adicionada com sucesso!"); // Tem que colocar no App após o bowserrouter <Toaster position="bottom-right" /> para direcionar o local onde irá aparecer a mensagem
             // Redirecionar o usuário para /tarefas navegar de foma imperativa
@@ -26,6 +33,11 @@ function NovaTarefa() { // formState: {errors} ele diz onde está o erro no pree
         // Os dados serão passados para a função de inserir. O addTarefa vem do tarefas.js como está no import acima  
     }
 
+    // Se o usuário não está logado
+    if(usuario === null) {
+        // Navegar para login
+        return <Navigate to="/login" />
+    }
 
     return (
         <main>

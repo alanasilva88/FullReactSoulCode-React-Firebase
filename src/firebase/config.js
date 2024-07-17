@@ -12,9 +12,9 @@ const firebaseConfig = {  // Tudo que está entre chaves, ou seja o objeto, são
 };
 
 
-export const app = initializeApp(firebaseConfig); // Adiciona export pois esse app será utilizado em outros locais no projeto
-export const auth = getAuth(app); // Pega os recursos de Autenticação 
-export const db = getFirestore(app); // Pega as configurações do Firestore
+export const app = initializeApp(firebaseConfig); // App = Adiciona export pois esse app será utilizado em outros locais no projeto
+export const auth = getAuth(app); // Auth = Pega os recursos de Autenticação 
+export const db = getFirestore(app); //DB = Pega as configurações do Firestore
 
 
 

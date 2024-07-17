@@ -1,11 +1,29 @@
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form"; // Biblioteca utilizada para os forms e tem que ser intalada nos projetos
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import {  entrarGoogle, loginUsuario } from "../firebase/auth";
 
 function Login() { // no form = for tem que ser igual ao id para fazer a ligação e não precisa colocar o atributo name, pois já tem na biblioteca
     const { register, handleSubmit, formState: { errors } } = useForm (); // register = registra inputs
 
+    const navigate = useNavigate();
+
     function entrar(data) { // data = é um objeto com os dados do forms com email e senha
-        console.log(data);
+        loginUsuario(data.email, data.senha).then(() => {
+            toast.success("Bem-vindo (a)!");
+            navigate("/tarefas");
+        }).catch(() => {
+            toast.error("Email e/ou senha incorreto!");
+            // pode colocar um alert("Um erro aconteceu!")
+        });
+    }
+
+    function handleEntrarGoogle() {
+        entrarGoogle().then(() => {
+         toast.success("Bem-vindo (a)!");
+         navigate("/tarefas");
+        });
     }
 
     return (
@@ -38,7 +56,7 @@ function Login() { // no form = for tem que ser igual ao id para fazer a ligaç�
                 <Button variant="outline-dark" className="mt-1 w-100" type="submit">
                     Entrar
                 </Button>
-                <Button variant="outline-danger" className="mt-1 w-100" type="button">
+                <Button variant="outline-danger" className="mt-1 w-100" type="button" onClick={handleEntrarGoogle}>
                     Entrar com o Google
                 </Button>
             </form>
