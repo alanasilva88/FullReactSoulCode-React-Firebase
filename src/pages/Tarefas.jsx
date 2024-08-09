@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { UsuarioContext } from "../contexts/UsuarioContext";
+import { MdAdd, MdDelete, MdEdit } from "react-icons/md";
 
 function Tarefas() {
     const [tarefas, setTarefas] = useState(null); // Inicialmente é null, pois ainda não possui dados para exibir
@@ -48,7 +49,6 @@ function Tarefas() {
 
     const categorias = {
         "Estudos": "primary",
-        "Lazer": "warning",
         "Trabalho": "success",
         "Lazer": "info" ,
         "Projetos": "danger",
@@ -59,11 +59,11 @@ function Tarefas() {
     return (
         <main>
             <Container className="mt-5">
-                <h1>Suas tarefas</h1>
-                <hr />
-                <Link className="btn btn-outline-dark my-1" to="/tarefas/adicionar">Adicionar tarefa</Link>
+                <h1 className="font-sans-bold text-2xl border-b-4">Suas tarefas</h1>
+                {/* <hr /> */}
+                <Link className="btn btn-outline-dark my-1" to="/tarefas/adicionar"><MdAdd /></Link>
                 {tarefas ? 
-                <section className="my-2">
+                <section className="my-3">
                     {tarefas.map((tarefa) => {
                         return <Card key={tarefa.id}>
                             <Card.Body>
@@ -76,8 +76,8 @@ function Tarefas() {
                                 </div>
                                 <Button variant="outline-dark m-1" onClick={() => {
                                     navigate(`/tarefas/editar/${tarefa.id}`);
-                                }}>Editar</Button>
-                                <Button variant="outline-danger m-1" onClick={() => deletarTarefa(tarefa.id)}>Excluir</Button>
+                                }}><MdEdit /></Button>
+                                <Button variant="outline-danger m-1" onClick={() => deletarTarefa(tarefa.id)}><MdDelete /></Button>
                             </Card.Body>
                         </Card>
                     })}    

@@ -10,7 +10,7 @@ import { db } from "./config";
 // Create - Cria uma referência para a coleção no Firestone, gerando uma coleção chamada neste caso de "tarefas", ideal que seja no plural ou inglês (se comunica com o Firestone)
 export const tarefasCol = collection(db, "tarefas");
 
-// Função assíncrona = que o resultado dela não é pbtido imediatamente - haverá uma "espera" = await. O async chama await
+// Função assíncrona = que o resultado dela não é obtido imediatamente - haverá uma "espera" = await. O async chama await
 // Essa função se comunica com o firestone, envia os dados (data) e salva na coleção indicada
 export async function addTarefa(data) { 
     await addDoc(tarefasCol, data); // data = dados do formulário preenchido pelo usuário em novaTarefa.jsx

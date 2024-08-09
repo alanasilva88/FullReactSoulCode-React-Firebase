@@ -29,10 +29,10 @@ function Login() { // no form = for tem que ser igual ao id para fazer a liga√ß√
     return (
         <main>
             <form className="form-section" onSubmit={handleSubmit(entrar)}>
-                <h1>Login</h1>
-                <hr />
+                <h1 className="font-sans-bold text-2xl border-b-4">Login</h1>
+                {/* <hr /> */}
                 <div>
-                    <label htmlFor="email"> Email</label>
+                    <label htmlFor="email">Email</label>
                     <input 
                         type="email" 
                         id="email" 

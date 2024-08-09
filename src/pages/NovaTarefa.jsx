@@ -42,8 +42,8 @@ function NovaTarefa() { // formState: {errors} ele diz onde está o erro no pree
     return (
         <main>
             <form className="form-section" onSubmit={handleSubmit(salvarTarefa)}>
-                <h1>Adicionar tarefa</h1>
-                <hr />
+                <h1 className="font-sans-bold text-2xl border-b-4">Adicionar tarefa</h1>
+                {/* <hr /> */}
                 <div>
                     <label htmlFor="titulo">Título</label>
                     <input 

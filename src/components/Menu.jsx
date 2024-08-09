@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../firebase/auth";
 import { useContext } from "react";
 import { UsuarioContext } from "../contexts/UsuarioContext";
+import logo from "../assets/logo-myTask.png";
 
 // <Navbar.Toggle /> para criar efeito hamburguer no NAVBAR para media query.
 // <Navbar.Collapse> para criar MENU COLAPSADO no navbar para media query.
@@ -27,7 +28,7 @@ function Menu() {
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid>
                     <Link to="/">
-                        <img src="https://cdn.pixabay.com/photo/2017/09/29/00/30/checkmark-icon-2797531_640.png" width="32"/>
+                        <img src={logo} className="rounded-md max-w-20 rounded-r-full"/>
                     </Link>
                     <Navbar.Toggle /> 
                     <Navbar.Collapse>

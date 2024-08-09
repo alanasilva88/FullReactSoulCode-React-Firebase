@@ -1,7 +1,13 @@
 @import "bootstrap/dist/css/bootstrap.min.css"; 
 /* import do bootstrap */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* para centralizar determina uma largura e coloca margin em auto */
+
+
 
 .form-section {
     width: 320px;
@@ -14,5 +20,6 @@
 
 main {
     min-height: calc(100vh - 112px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

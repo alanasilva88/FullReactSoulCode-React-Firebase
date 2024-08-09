@@ -29,8 +29,8 @@ function Cadastro() {
     return (
         <main>
             <form className="form-section" onSubmit={handleSubmit(cadastrar)}> 
-                <h1>Cadastro</h1>
-                <hr />
+                <h1 className="font-sans-bold text-2xl border-b-4">Cadastro</h1>
+                {/* <hr /> */}
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input 
