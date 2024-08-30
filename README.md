@@ -2,6 +2,8 @@
 
 **MyTask** é um sistema para gerenciamento de tarefas pessoais. Com esta aplicação, você pode cadastrar, visualizar, editar e excluir suas atividades diárias de maneira fácil e organizada.
 
+Você pode acessar a página em [My Task - Deploy](https://my-task-db3f5.web.app/).
+
 ## Funcionalidades
 
 - **Cadastro e Login de Usuário**: Os usuários podem se registrar e fazer login para acessar suas tarefas.
