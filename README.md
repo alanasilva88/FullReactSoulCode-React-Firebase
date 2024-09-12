@@ -71,7 +71,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
    APP_ID=<seu-app-id>
 
 
-Certifique-se de substituir <sua-api-key>, <seu-auth-domain>, etc., pelas suas próprias credenciais do Firebase.
+Certifique-se de substituir sua-api-key, seu-auth-domain, etc., pelas suas próprias credenciais do Firebase.
 
 4. **Executar a Aplicação em Modo de Desenvolvimento**
 
