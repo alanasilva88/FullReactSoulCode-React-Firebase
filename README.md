@@ -29,8 +29,58 @@ Este projeto utiliza as seguintes dependências:
 
 Siga os passos abaixo para rodar o projeto localmente:
 
-1. Clone o repositório:
+Este é um guia simples para configurar e executar a aplicação mytask em sua máquina local.
+
+## Pré-requisitos
+Antes de começar, certifique-se de ter instalado em sua máquina:
+
+- Node.js (v14 ou superior)
+- npm (ou yarn, se preferir)
+  
+## Passos para Configuração
+
+1. **Clone o repositório:**
 
    ```bash
    git clone https://github.com/seu-usuario/my-task.git
-   cd my-task
+   cd my-task ```
+
+2. **Instale as Dependências**
+
+   Abra um terminal na pasta do projeto e execute o seguinte comando para instalar todas as dependências necessárias:
+
+   ```bash
+   npm install
+   # ou, se estiver usando yarn
+   yarn
+
+3. **Configuração do Firebase**
+
+- Crie um projeto no Firebase (se ainda não tiver um).
+
+- Copie as credenciais do Firebase (apiKey, authDomain, projectId, etc.) do seu projeto Firebase para o arquivo de configuração Firebase da aplicação.
+
+   - No projeto, crie um arquivo `.env` na raiz do projeto e adicione suas credenciais Firebase da seguinte maneira:
+
+   ```makefile
+   API_KEY=<sua-api-key>
+   AUTH_DOMAIN=<seu-auth-domain>
+   PROJECT_ID=<seu-project-id>
+   STORAGE_BUCKET=<seu-storage-bucket>
+   MESSAGING_SENDER_ID=<seu-messaging-sender-id>
+   APP_ID=<seu-app-id>
+
+
+Certifique-se de substituir <sua-api-key>, <seu-auth-domain>, etc., pelas suas próprias credenciais do Firebase.
+
+4. **Executar a Aplicação em Modo de Desenvolvimento**
+
+   Após a instalação das dependências e configuração do Firebase, você pode iniciar a aplicação em modo de desenvolvimento usando o seguinte comando:
+
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+
+
+
